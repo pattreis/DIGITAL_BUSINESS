@@ -9,13 +9,13 @@ public interface GenericDAO<T,K> {
 
 	void inserir(T entidade);
 	
-	List<T> listar();
-	
 	void atualizar(T entidade);
 	
 	void remover(K codigo) throws KeyNotFoundException;
 	
 	T pesquisar(K codigo);
+	
+	List<T> listar();
 	
 	void commit() throws CommitException;
 	
