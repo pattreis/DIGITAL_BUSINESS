@@ -40,7 +40,6 @@ public class SelecaoResource {
 	@GET
 	@Path("{id}")
 	@Produces(MediaType.APPLICATION_JSON)
-
 	public Selecao pesquisar(@PathParam("id") int codigo) {
 
 		return dao.pesquisar(codigo);

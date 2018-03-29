@@ -26,7 +26,7 @@ import br.com.fiap.jpa.exception.CommitException;
 import br.com.fiap.jpa.exception.KeyNotFoundException;
 import br.com.fiap.jpa.singleton.EntityManagerFactorySingleton;
 
-@Path("/selecao")
+@Path("/jogador")
 public class JogadorResource {
 
 	JogadorDAO dao;
