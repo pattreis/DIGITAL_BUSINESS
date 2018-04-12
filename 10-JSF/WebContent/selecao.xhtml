@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>JSF - Cadastro</title>
+</h:head>
+<h:body>
+	<h1>CADASTRAR SELEÇÃO</h1>
+	<h:form>
+		
+		<h:panelGrid columns="2">
+			<h:outputLabel value="Nome" for="nome"></h:outputLabel>
+			<h:inputText value="#{selecaoBean.selecao.pais}" id="nome"></h:inputText>
+		</h:panelGrid>
+
+		<h:outputLabel value="Classificado" for="classificado"></h:outputLabel>
+		<h:selectBooleanCheckbox value="#{selecaoBean.selecao.classificado}"
+			id="classificado" />
+		
+		<h:panelGrid columns="2">
+			<h:outputLabel value="Número de mundiais" for="nMundiais"></h:outputLabel>
+			<h:selectOneMenu value="#{selecaoBean.selecao.numeroMundiais}">
+				<f:selectItems value="#{selecaoBean.getMundiais}" var="mundial"
+					itemLabel="#{mundial}" itemValue="#{mundial}" />
+			</h:selectOneMenu>
+		</h:panelGrid>
+		
+		<h:commandButton action="#{selecaoBean.cadastrar}" value="Salvar"></h:commandButton>
+
+
+	</h:form>
+</h:body>
+
+</html>
