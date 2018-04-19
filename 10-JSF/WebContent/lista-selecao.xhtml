@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:ui="http://java.sun.com/jsf/facelets" 
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<h:title> Lista de Seleção </h:title>
+	<h:outputStylesheet library="css" name="bootstrap.min.css"/>
+	<h:outputLink library="js" name="jquery-3.3.1.min.js"/>
+	<h:outputLink library="js" name="bootstrap.js"/>
+</h:head>
+<h:body>
+
+	<h1>Lista de Seleção</h1>
+	
+	<h:dataTable value="#{selecaoBean.selecoes}" var="s" styleClass="table table-striped">
+		<h:column>
+			<f:facet name="header">Código</f:facet>
+			#{s.codigo}			
+		</h:column>		
+		<h:column>
+			<f:facet name="header">País</f:facet>
+			#{s.pais}			
+		</h:column>
+		<h:column>
+			<f:facet name="header">Classificado</f:facet>
+			#{s.classificado?"Sim" : "Não"}			
+		</h:column>
+		<h:column>
+			<f:facet name="header">Número de Mundiais</f:facet>
+			#{s.numeroMundiais}			
+		</h:column>
+		<h:column>
+			
+			<h:form>
+				<h:commandButton action="selecao" value="Edit" styleClass="btn btn-warning"  >
+					<f:setPropertyActionListener value="#{s}" target="#{selecaoBean.selecao}" />
+				</h:commandButton>				
+			</h:form>		
+		</h:column>
+		<h:column>
+			
+			<h:form>
+				<h:commandButton action="#{selecaoBean.deletar(s.codigo)}" value="Delete" styleClass="btn btn-danger">					
+				</h:commandButton>				
+			</h:form>		
+		</h:column>
+	</h:dataTable>
+
+</h:body>
+</html>
