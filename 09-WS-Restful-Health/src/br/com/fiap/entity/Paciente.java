@@ -14,10 +14,11 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Table(name="T_PACIENTE")
-@SequenceGenerator(name="paciente", sequenceName="SQ_PACIENTE")
+@SequenceGenerator(name="paciente", sequenceName="SQ_T_PACIENTE", allocationSize = 1)
 public class Paciente {
 
 	@Id
+	@Column(name="cd_paciente")
 	@GeneratedValue(generator="paciente", strategy=GenerationType.SEQUENCE)
 	private int codigo;
 	

@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>Cadastro</title>
+	<h:outputStylesheet library="css" name="bootstrap.min.css" />
+	<h:outputLink library="js" name="jquery-3.3.1.min.js" />
+	<h:outputLink library="js" name="bootstrap.js" />
+</h:head>
+<h:body>
+	<h1>Cadastro de Pacientes</h1>
+	<h:form>	
+		<div class="container">		
+			<div class="form-group">
+			<h:messages />
+				<h:outputLabel value="Nome" for="nome" />
+				<h:inputText id="nome" value="#{pacienteBean.paciente.nome}" styleClass="form-control"/>
+			</div>
+			<div class="form-group">
+				<h:outputLabel value="Data Nascimento" />
+				<h:inputText value="#{pacienteBean.paciente.dataNascimento.time}" styleClass="form-control">
+					<f:convertDateTime pattern="dd/MM/yyyy" />
+				</h:inputText>
+			</div>
+			<div class="form-group">
+				<h:selectBooleanCheckbox id="doador"
+					value="#{pacienteBean.paciente.doador}" />
+				<h:outputLabel value="Doador" for="doador" />
+			</div>			
+			<div>
+				<h:commandButton action="#{pacienteBean.cadastrar()}" value="Cadastrar" styleClass="btn btn-primary" />
+			</div>
+		</div>
+	</h:form>
+</h:body>
+</html>

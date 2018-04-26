@@ -49,6 +49,7 @@ public class SelecaoService {
 					.path(String.valueOf(codigo));
 		
 		ClientResponse response = resource
+				//Configura o formato de resposta - JSON
 				.accept(MediaType.APPLICATION_JSON)
 				.get(ClientResponse.class);
 		
