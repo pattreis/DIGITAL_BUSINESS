@@ -12,16 +12,19 @@
 </h:head>
 <h:body>
 	<h1>Cadastro de Pacientes</h1>
-	<h:form>	
-		<div class="container">		
+	<h:form>
+		<div class="container">
 			<div class="form-group">
-			<h:messages />
+				<h:messages />
+				<h:inputHidden value="#{pacienteBean.paciente.codigo}" />
 				<h:outputLabel value="Nome" for="nome" />
-				<h:inputText id="nome" value="#{pacienteBean.paciente.nome}" styleClass="form-control"/>
+				<h:inputText id="nome" value="#{pacienteBean.paciente.nome}"
+					styleClass="form-control" />
 			</div>
 			<div class="form-group">
 				<h:outputLabel value="Data Nascimento" />
-				<h:inputText value="#{pacienteBean.paciente.dataNascimento.time}" styleClass="form-control">
+				<h:inputText value="#{pacienteBean.paciente.dataNascimento.time}"
+					styleClass="form-control">
 					<f:convertDateTime pattern="dd/MM/yyyy" />
 				</h:inputText>
 			</div>
@@ -29,10 +32,12 @@
 				<h:selectBooleanCheckbox id="doador"
 					value="#{pacienteBean.paciente.doador}" />
 				<h:outputLabel value="Doador" for="doador" />
-			</div>			
-			<div>
-				<h:commandButton action="#{pacienteBean.cadastrar()}" value="Cadastrar" styleClass="btn btn-primary" />
 			</div>
+			<div>
+				<h:commandButton action="#{pacienteBean.cadastrar()}"
+					value="Cadastrar" styleClass="btn btn-primary" />
+			</div>
+			<h:link outcome="lista-paciente"> Listar Pacientes </h:link>
 		</div>
 	</h:form>
 </h:body>

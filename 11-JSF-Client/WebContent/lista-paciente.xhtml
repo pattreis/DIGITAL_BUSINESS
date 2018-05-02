@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>Lista Pacientes</title>
+	<h:outputStylesheet library="css" name="bootstrap.min.css" />
+	<h:outputLink library="js" name="jquery-3.3.1.min.js" />
+	<h:outputLink library="js" name="bootstrap.js" />
+</h:head>
+
+<h:body>
+
+	<div class="container">
+		<h1>Lista de Pacientes</h1>
+		<h:messages />
+		<h:dataTable value="#{pacienteBean.pacientes}" var="p"
+			styleClass="table table-striped">
+			<h:column>
+				<f:facet name="header">Código</f:facet>
+		#{p.codigo}
+	</h:column>
+			<h:column>
+				<f:facet name="header">Paciente</f:facet>
+		#{p.nome}
+	</h:column>
+			<h:column>
+				<f:facet name="header">Nascimento</f:facet>
+				<h:outputText value="#{p.dataNascimento.time}">
+					<f:convertDateTime pattern="dd/MM/yyyy" />
+				</h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header">Doador</f:facet>
+		#{p.doador? "Sim" : "Não"}
+	</h:column>
+			<f:facet name="header">
+			</f:facet>
+			<h:column>
+				<h:form>
+					<h:commandButton action="paciente" value="Editar"
+						styleClass="btn btn-warning">
+						<f:setPropertyActionListener value="#{p}"
+							target="#{pacienteBean.paciente}" />
+					</h:commandButton>
+				</h:form>
+			</h:column>
+			<h:column>
+				<h:form>
+					<h:commandButton action="#{pacienteBean.excluir(p.codigo)}"
+						value="Excluir" styleClass="btn btn-danger">
+					</h:commandButton>
+				</h:form>
+			</h:column>
+
+
+
+		</h:dataTable>
+		<h:link outcome="paciente"> Cadastrar </h:link>
+	</div>
+</h:body>
+</html>

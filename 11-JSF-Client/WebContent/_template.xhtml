@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<h:title><ui:insert name="titulo"></ui:insert></h:title>
+	<h:outputStylesheet library="css" name="bootstrap.min.css" />
+	<h:outputLink library="js" name="jquery-3.3.1.min.js" />
+	<h:outputLink library="js" name="bootstrap.js" />
+</h:head>
+<h:body>
+	<div class="container">
+		<h1>FIAP Health</h1>
+		<ui:insert name="churros"></ui:insert>
+
+		<ui:insert name="rodape"></ui:insert>		
+	</div>
+</h:body>
+
+</html>

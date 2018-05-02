@@ -50,7 +50,7 @@ public class PacienteService {
 	}
 
 	public void atualizar(Paciente paciente) throws Exception {
-		WebResource resource = client.resource(URL);
+		WebResource resource = client.resource(URL).path(String.valueOf(paciente.getCodigo()));
 
 		ClientResponse response = resource.type(MediaType.APPLICATION_JSON).put(ClientResponse.class, paciente);
 
