@@ -7,13 +7,12 @@
 <h:head>
 	<title>Lista Pacientes</title>
 	<h:outputStylesheet library="css" name="bootstrap.min.css" />
-	<h:outputLink library="js" name="jquery-3.3.1.min.js" />
-	<h:outputLink library="js" name="bootstrap.js" />
+	<h:outputScript library="js" name="jquery-3.3.1.min.js" />
+	<h:outputScript library="js" name="bootstrap.js" />
 </h:head>
 
-<h:body>
-
-	<div class="container">
+<ui:composition template="/_template.xhtml">
+	<ui:define name="churros">
 		<h1>Lista de Pacientes</h1>
 		<h:messages />
 		<h:dataTable value="#{pacienteBean.pacientes}" var="p"
@@ -54,11 +53,7 @@
 					</h:commandButton>
 				</h:form>
 			</h:column>
-
-
-
 		</h:dataTable>
-		<h:link outcome="paciente"> Cadastrar </h:link>
-	</div>
-</h:body>
+	</ui:define>
+</ui:composition>
 </html>

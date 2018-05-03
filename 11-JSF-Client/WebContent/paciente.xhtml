@@ -10,23 +10,28 @@
 	<h:outputLink library="js" name="jquery-3.3.1.min.js" />
 	<h:outputLink library="js" name="bootstrap.js" />
 </h:head>
-<h:body>
-	<h1>Cadastro de Pacientes</h1>
-	<h:form>
-		<div class="container">
+<ui:composition template="/_template.xhtml">
+	<ui:define name="churros">
+		<h1>Pacientes</h1>
+		<h:form>
 			<div class="form-group">
 				<h:messages />
 				<h:inputHidden value="#{pacienteBean.paciente.codigo}" />
 				<h:outputLabel value="Nome" for="nome" />
-				<h:inputText id="nome" value="#{pacienteBean.paciente.nome}"
-					styleClass="form-control" />
+				<h:inputText id="nome" required="true"
+					requiredMessage="O nome é obrigatório!"
+					value="#{pacienteBean.paciente.nome}" styleClass="form-control">
+					<f:validateLength minimum="3" maximum="50"></f:validateLength>
+				</h:inputText>
+				<h:message for="nome" styleClass="text-danger" />
 			</div>
 			<div class="form-group">
-				<h:outputLabel value="Data Nascimento" />
+				<h:outputLabel value="Data Nascimento" for="data" />
 				<h:inputText value="#{pacienteBean.paciente.dataNascimento.time}"
-					styleClass="form-control">
+					id="data" styleClass="form-control">
 					<f:convertDateTime pattern="dd/MM/yyyy" />
 				</h:inputText>
+				<h:message for="data" styleClass="text-danger" />
 			</div>
 			<div class="form-group">
 				<h:selectBooleanCheckbox id="doador"
@@ -37,8 +42,7 @@
 				<h:commandButton action="#{pacienteBean.cadastrar()}"
 					value="Cadastrar" styleClass="btn btn-primary" />
 			</div>
-			<h:link outcome="lista-paciente"> Listar Pacientes </h:link>
-		</div>
-	</h:form>
-</h:body>
+		</h:form>
+	</ui:define>
+</ui:composition>
 </html>

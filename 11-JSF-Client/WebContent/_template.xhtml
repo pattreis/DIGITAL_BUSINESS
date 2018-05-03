@@ -5,17 +5,42 @@
 	xmlns:f="http://java.sun.com/jsf/core">
 
 <h:head>
-	<h:title><ui:insert name="titulo"></ui:insert></h:title>
+	<title><ui:insert name="titulo">FIAP | HEALTH</ui:insert></title>
 	<h:outputStylesheet library="css" name="bootstrap.min.css" />
-	<h:outputLink library="js" name="jquery-3.3.1.min.js" />
-	<h:outputLink library="js" name="bootstrap.js" />
+	<h:outputScript library="js" name="jquery-3.3.1.min.js" />
+	<h:outputScript library="js" name="bootstrap.js" />
 </h:head>
 <h:body>
 	<div class="container">
+		<nav class="navbar navbar-expand-lg navbar-light bg-light"> <a
+			class="navbar-brand" href="#">FIAP HEALTH</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false"
+			aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item"><h:link styleClass="nav-link"
+						outcome="index">Home</h:link></li>
+				<li class="nav-item dropdown"><a
+					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+					role="button" data-toggle="dropdown" aria-haspopup="true"
+					aria-expanded="false"> Paciente </a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<h:link outcome="paciente" styleClass="dropdown-item">Cadastrar</h:link>
+						<h:link outcome="lista-paciente" styleClass="dropdown-item">Listar</h:link>
+					</div></li>
+			</ul>
+		</div>
+		</nav>
+
 		<h1>FIAP Health</h1>
 		<ui:insert name="churros"></ui:insert>
 
-		<ui:insert name="rodape"></ui:insert>		
+		<p>Todos os direitos reservados - 2018</p>
 	</div>
 </h:body>
 
