@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="/_template.xhtml">
+	<title><ui:define name="title">NAC</ui:define></title>
+	<ui:define name="conteudo">
+		<h:form>
+			<div class="container">
+				<div class="form-group">
+					<h:messages />
+					<h:outputLabel value="Endereço" for="end" />
+					<h:inputText value="#{imovelBean.imovel.endereco}" id="end"
+						required="true" styleClass="form-control"></h:inputText>
+				</div>
+
+				<div class="form-group">
+					<h:outputLabel value="Preço" for="preco" />
+					<h:inputText value="#{imovelBean.imovel.preco}" id="preco"
+						required="true" styleClass="form-control"></h:inputText>
+				</div>
+
+				<div class="form-group">
+					<h:outputLabel value="Residencial" for="residencial" />
+					<h:selectBooleanCheckbox value="#{imovelBean.imovel.residencial}"
+						id="res" required="true" styleClass="form-control"></h:selectBooleanCheckbox>
+				</div>
+				<div>
+					<h:commandButton action="#{imovelBean.cadastrar()}"
+						value="Cadastrar" styleClass="btn btn-primary" />
+				</div>
+			</div>
+		</h:form>
+	</ui:define>
+
+</ui:composition>
+
+</html>
